@@ -19,7 +19,7 @@
                   });
                   var allergy = smart.patient.api.fetchAll({
                     type: 'AllergyIntolerance',
-                    query:{"patient": smart.patient.id}
+                    query:{"clincial-status": 'active'}
                   });
 
         $.when(pt, obv, allergy).fail(onError);
