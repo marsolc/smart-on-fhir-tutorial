@@ -50,6 +50,18 @@
           var ldl = byCodes('2089-1');
 
           var p = defaultPatient();
+          var allergyTable = "<table>";
+          Var allergyLen = allergy.length;
+          for (var i=0;i<allergyLen;1++){
+                if(allergy[i].reaction !== undefined) {
+                    allergyTable +="<tr><td>"+allergy[i].code.text+"</td></tr>";
+                }
+          }
+          if (allergyLen === 0) {
+                allergyTable += "<tr><td>No Allergies Found</td></tr>";
+          }
+          allergyTable += "</table>";
+          p.allergies = allergyTable;
           p.birthdate = patient.birthDate;
           p.gender = gender;
           p.fname = fname;
@@ -66,6 +78,8 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
+          p.allergy = 'Allergies';
+          
 
           ret.resolve(p);
         });
