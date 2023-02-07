@@ -14,8 +14,13 @@
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
-                      code:['http://loinc.org|8302-2' , 'http://loinc.org|2085-9', 
-                            'http://loinc.org|2089-1' , 'http://loinc.org|85354-9']
+                      code:{
+                        $or:['http://loinc.org|8302-2',
+                             'http://loinc.org|2085-9',
+                             'http://loinc.org|2089-1',
+                             'http://loinc.org|85354-9'
+                            ]
+                      }
                     }
                   });
        var allergy = smart.patient.api.fetchAll({
