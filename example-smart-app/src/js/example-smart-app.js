@@ -18,7 +18,9 @@
                     }
                   });
                   var allergy = smart.patient.api.fetchAll({
-                    type: 'AllergyIntolerance',});
+                    type: 'AllergyIntolerance',
+                    query:{"patient": smart.patient.id}
+                  });
 
         $.when(pt, obv, allergy).fail(onError);
 
